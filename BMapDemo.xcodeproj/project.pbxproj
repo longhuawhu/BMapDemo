@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		EB7356041B607E330082F47D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7356031B607E330082F47D /* main.m */; };
-		EB7356071B607E330082F47D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7356061B607E330082F47D /* AppDelegate.m */; };
+		EB7356071B607E330082F47D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB7356061B607E330082F47D /* AppDelegate.mm */; };
 		EB73560A1B607E330082F47D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7356091B607E330082F47D /* ViewController.m */; };
 		EB73560D1B607E330082F47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB73560B1B607E330082F47D /* Main.storyboard */; };
 		EB73560F1B607E330082F47D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB73560E1B607E330082F47D /* Images.xcassets */; };
 		EB7356121B607E330082F47D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7356101B607E330082F47D /* LaunchScreen.xib */; };
 		EB73561E1B607E330082F47D /* BMapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB73561D1B607E330082F47D /* BMapDemoTests.m */; };
+		EB7356281B60822F0082F47D /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7356271B60822F0082F47D /* BaiduMapAPI.framework */; };
+		EB73562A1B60824A0082F47D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7356291B60824A0082F47D /* CoreLocation.framework */; };
+		EB73562C1B6082530082F47D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB73562B1B6082530082F47D /* QuartzCore.framework */; };
+		EB73562E1B60825A0082F47D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB73562D1B60825A0082F47D /* OpenGLES.framework */; };
+		EB7356301B6082660082F47D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB73562F1B6082660082F47D /* SystemConfiguration.framework */; };
+		EB7356321B6082720082F47D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7356311B6082720082F47D /* CoreGraphics.framework */; };
+		EB7356341B60827B0082F47D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7356331B60827B0082F47D /* Security.framework */; };
+		EB7356361B6082E20082F47D /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB7356351B6082E20082F47D /* mapapi.bundle */; };
+		EB7356381B6092B40082F47D /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7356371B6092B40082F47D /* map.png */; };
+		EB73563A1B6097060082F47D /* Head.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7356391B6097060082F47D /* Head.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +41,7 @@
 		EB7356021B607E330082F47D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB7356031B607E330082F47D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB7356051B607E330082F47D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EB7356061B607E330082F47D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EB7356061B607E330082F47D /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		EB7356081B607E330082F47D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EB7356091B607E330082F47D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EB73560C1B607E330082F47D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +50,16 @@
 		EB7356171B607E330082F47D /* BMapDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMapDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB73561C1B607E330082F47D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB73561D1B607E330082F47D /* BMapDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMapDemoTests.m; sourceTree = "<group>"; };
+		EB7356271B60822F0082F47D /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI.framework; path = "BMapDemo/Libs/Release-iphoneos/BaiduMapAPI.framework"; sourceTree = "<group>"; };
+		EB7356291B60824A0082F47D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EB73562B1B6082530082F47D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EB73562D1B60825A0082F47D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		EB73562F1B6082660082F47D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EB7356311B6082720082F47D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EB7356331B60827B0082F47D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EB7356351B6082E20082F47D /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = "Libs/Release-iphoneos/BaiduMapAPI.framework/Resources/mapapi.bundle"; sourceTree = "<group>"; };
+		EB7356371B6092B40082F47D /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		EB7356391B6097060082F47D /* Head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Head.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +67,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7356341B60827B0082F47D /* Security.framework in Frameworks */,
+				EB7356321B6082720082F47D /* CoreGraphics.framework in Frameworks */,
+				EB7356301B6082660082F47D /* SystemConfiguration.framework in Frameworks */,
+				EB73562E1B60825A0082F47D /* OpenGLES.framework in Frameworks */,
+				EB73562C1B6082530082F47D /* QuartzCore.framework in Frameworks */,
+				EB73562A1B60824A0082F47D /* CoreLocation.framework in Frameworks */,
+				EB7356281B60822F0082F47D /* BaiduMapAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +90,13 @@
 		EB7355F51B607E330082F47D = {
 			isa = PBXGroup;
 			children = (
+				EB7356331B60827B0082F47D /* Security.framework */,
+				EB7356311B6082720082F47D /* CoreGraphics.framework */,
+				EB73562F1B6082660082F47D /* SystemConfiguration.framework */,
+				EB73562D1B60825A0082F47D /* OpenGLES.framework */,
+				EB73562B1B6082530082F47D /* QuartzCore.framework */,
+				EB7356291B60824A0082F47D /* CoreLocation.framework */,
+				EB7356271B60822F0082F47D /* BaiduMapAPI.framework */,
 				EB7356001B607E330082F47D /* BMapDemo */,
 				EB73561A1B607E330082F47D /* BMapDemoTests */,
 				EB7355FF1B607E330082F47D /* Products */,
@@ -81,8 +115,9 @@
 		EB7356001B607E330082F47D /* BMapDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EB7356351B6082E20082F47D /* mapapi.bundle */,
 				EB7356051B607E330082F47D /* AppDelegate.h */,
-				EB7356061B607E330082F47D /* AppDelegate.m */,
+				EB7356061B607E330082F47D /* AppDelegate.mm */,
 				EB7356081B607E330082F47D /* ViewController.h */,
 				EB7356091B607E330082F47D /* ViewController.m */,
 				EB73560B1B607E330082F47D /* Main.storyboard */,
@@ -96,6 +131,8 @@
 		EB7356011B607E330082F47D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB7356391B6097060082F47D /* Head.png */,
+				EB7356371B6092B40082F47D /* map.png */,
 				EB7356021B607E330082F47D /* Info.plist */,
 				EB7356031B607E330082F47D /* main.m */,
 			);
@@ -200,6 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB73560D1B607E330082F47D /* Main.storyboard in Resources */,
+				EB7356361B6082E20082F47D /* mapapi.bundle in Resources */,
+				EB7356381B6092B40082F47D /* map.png in Resources */,
+				EB73563A1B6097060082F47D /* Head.png in Resources */,
 				EB7356121B607E330082F47D /* LaunchScreen.xib in Resources */,
 				EB73560F1B607E330082F47D /* Images.xcassets in Resources */,
 			);
@@ -220,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB73560A1B607E330082F47D /* ViewController.m in Sources */,
-				EB7356071B607E330082F47D /* AppDelegate.m in Sources */,
+				EB7356071B607E330082F47D /* AppDelegate.mm in Sources */,
 				EB7356041B607E330082F47D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,8 +387,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BMapDemo/Libs/Release-iphoneos",
+				);
 				INFOPLIST_FILE = BMapDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -357,8 +402,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BMapDemo/Libs/Release-iphoneos",
+				);
 				INFOPLIST_FILE = BMapDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
