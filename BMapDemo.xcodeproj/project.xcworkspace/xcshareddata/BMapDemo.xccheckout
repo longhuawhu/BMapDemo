@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>728C4D0C-5DFD-425B-A063-A57BAE75E062</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BMapDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>694805E0167C44BA782FFA9C88E7D3CC0D8E3CD9</key>
+		<string>https://github.com/longhuawhu/BMapDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BMapDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>694805E0167C44BA782FFA9C88E7D3CC0D8E3CD9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/longhuawhu/BMapDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>694805E0167C44BA782FFA9C88E7D3CC0D8E3CD9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>694805E0167C44BA782FFA9C88E7D3CC0D8E3CD9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BMapDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

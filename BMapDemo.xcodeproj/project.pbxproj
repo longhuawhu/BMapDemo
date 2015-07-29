@@ -24,6 +24,11 @@
 		EB7356361B6082E20082F47D /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB7356351B6082E20082F47D /* mapapi.bundle */; };
 		EB7356381B6092B40082F47D /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7356371B6092B40082F47D /* map.png */; };
 		EB73563A1B6097060082F47D /* Head.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7356391B6097060082F47D /* Head.png */; };
+		EBDE48D71B68C3620008D8A2 /* CellInfor.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDE48D61B68C3620008D8A2 /* CellInfor.m */; };
+		EBDE48DC1B68C64F0008D8A2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDE48DB1B68C64F0008D8A2 /* LocationViewController.m */; };
+		EBDE48DF1B68CA8A0008D8A2 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDE48DE1B68CA8A0008D8A2 /* AnnotationViewController.m */; };
+		EBDE48E21B68CE920008D8A2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDE48E11B68CE920008D8A2 /* SearchViewController.m */; };
+		EBDE48E51B68D0F90008D8A2 /* RadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDE48E41B68D0F90008D8A2 /* RadarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,16 @@
 		EB7356351B6082E20082F47D /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = "Libs/Release-iphoneos/BaiduMapAPI.framework/Resources/mapapi.bundle"; sourceTree = "<group>"; };
 		EB7356371B6092B40082F47D /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		EB7356391B6097060082F47D /* Head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Head.png; sourceTree = "<group>"; };
+		EBDE48D51B68C3620008D8A2 /* CellInfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellInfor.h; sourceTree = "<group>"; };
+		EBDE48D61B68C3620008D8A2 /* CellInfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellInfor.m; sourceTree = "<group>"; };
+		EBDE48DA1B68C64F0008D8A2 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		EBDE48DB1B68C64F0008D8A2 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		EBDE48DD1B68CA8A0008D8A2 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewController.h; sourceTree = "<group>"; };
+		EBDE48DE1B68CA8A0008D8A2 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewController.m; sourceTree = "<group>"; };
+		EBDE48E01B68CE920008D8A2 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		EBDE48E11B68CE920008D8A2 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		EBDE48E31B68D0F90008D8A2 /* RadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarViewController.h; sourceTree = "<group>"; };
+		EBDE48E41B68D0F90008D8A2 /* RadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +139,16 @@
 				EB73560E1B607E330082F47D /* Images.xcassets */,
 				EB7356101B607E330082F47D /* LaunchScreen.xib */,
 				EB7356011B607E330082F47D /* Supporting Files */,
+				EBDE48D51B68C3620008D8A2 /* CellInfor.h */,
+				EBDE48D61B68C3620008D8A2 /* CellInfor.m */,
+				EBDE48DA1B68C64F0008D8A2 /* LocationViewController.h */,
+				EBDE48DB1B68C64F0008D8A2 /* LocationViewController.m */,
+				EBDE48DD1B68CA8A0008D8A2 /* AnnotationViewController.h */,
+				EBDE48DE1B68CA8A0008D8A2 /* AnnotationViewController.m */,
+				EBDE48E01B68CE920008D8A2 /* SearchViewController.h */,
+				EBDE48E11B68CE920008D8A2 /* SearchViewController.m */,
+				EBDE48E31B68D0F90008D8A2 /* RadarViewController.h */,
+				EBDE48E41B68D0F90008D8A2 /* RadarViewController.m */,
 			);
 			path = BMapDemo;
 			sourceTree = "<group>";
@@ -259,9 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBDE48D71B68C3620008D8A2 /* CellInfor.m in Sources */,
+				EBDE48E51B68D0F90008D8A2 /* RadarViewController.m in Sources */,
 				EB73560A1B607E330082F47D /* ViewController.m in Sources */,
 				EB7356071B607E330082F47D /* AppDelegate.mm in Sources */,
+				EBDE48DF1B68CA8A0008D8A2 /* AnnotationViewController.m in Sources */,
 				EB7356041B607E330082F47D /* main.m in Sources */,
+				EBDE48DC1B68C64F0008D8A2 /* LocationViewController.m in Sources */,
+				EBDE48E21B68CE920008D8A2 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +496,7 @@
 				EB7356231B607E330082F47D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB7356241B607E330082F47D /* Build configuration list for PBXNativeTarget "BMapDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +505,7 @@
 				EB7356261B607E330082F47D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

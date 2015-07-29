@@ -8,196 +8,90 @@
 
 #import "ViewController.h"
 #import <BaiduMapAPI/BMapKit.h>
+#import "CellInfor.h"
 
-@interface ViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>
+#import "LocationViewController.h"
+#import "AnnotationViewController.h"
+#import "SearchViewController.h"
+#import "RadarViewController.h"
+
+@interface ViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UITableViewDelegate, UITableViewDataSource>
 {
-    BMKMapView *_mapView;
-    BMKLocationService *_locService;
-    
+
     BMKGeoCodeSearch *_searcher;
 }
-
+@property (nonatomic, weak)UITableView *tabelView;
+@property (nonatomic, retain)NSMutableArray *sectionRow;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    BMKMapView* mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 100)];
-    [self.view addSubview:mapView];
-    _mapView = mapView;
-    mapView.delegate = self;
     
-    [self startLocation];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     
-    _mapView.zoomLevel = 15;
-    
-    _mapView.showsUserLocation = YES;
-   
-    
-    [self addAnnotationWithLatitude:39.915 longitude:116.404];
-    
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
+    self.tabelView = tableView;
+
+    [self loadData];
     
     NSLog(@"viewDidLoad");
     
-    [self startReverseSearch];
 }
 
--(void)startLocation{
-    //设置定位精确度，默认：kCLLocationAccuracyBest
-    [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
-    [BMKLocationService setLocationDistanceFilter:100.f];
+-(void)loadData{
+    self.sectionRow = [[NSMutableArray alloc] init];
     
-    //初始化BMKLocationService
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
+    [self.sectionRow addObject:[CellInfor infoWithTitle:@"定位" viewController:[[LocationViewController alloc] init]]];
     
-    //启动LocationService
-    [_locService startUserLocationService];
-}
-
-#pragma mark -- BMKLocationServiceDelegate
-//实现相关delegate 处理位置信息更新
-//处理方向变更信息
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
-{
-    //NSLog(@"heading is %@",userLocation.heading);
-}
-//处理位置坐标更新
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
-{
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    [self.sectionRow addObject:[CellInfor infoWithTitle:@"标注" viewController:[[AnnotationViewController alloc] init]]];
     
-   // [_mapView setCenterCoordinate:userLocation.location.coordinate];
-}
-
--(void)startSearcher{
-    _searcher =[[BMKGeoCodeSearch alloc]init];
-    _searcher.delegate = self;
-    BMKGeoCodeSearchOption *geoCodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
-    geoCodeSearchOption.city= @"北京市";
-    geoCodeSearchOption.address = @"海淀区上地10街10号";
-    BOOL flag = [_searcher geoCode:geoCodeSearchOption];
+    [self.sectionRow addObject:[CellInfor infoWithTitle:@"检索" viewController:[[SearchViewController alloc] init]]];
+    
+    [self.sectionRow addObject:[CellInfor infoWithTitle:@"雷达" viewController:[[RadarViewController alloc] init]]];
+    
+    
+    
+    
   
-    if(flag)
-    {
-        NSLog(@"geo检索发送成功");
-    }
-    else
-    {
-        NSLog(@"geo检索发送失败");
-    }
 }
 
--(void)startReverseSearch{
-   // 发起反向地理编码检索
-    _searcher =[[BMKGeoCodeSearch alloc]init];
-    _searcher.delegate = self;
+#pragma mark -- 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.sectionRow count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellId = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     
-    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){39.915, 116.404};
-    BMKReverseGeoCodeOption *reverseGeoCodeSearchOption = [[
-    BMKReverseGeoCodeOption alloc]init];
-    reverseGeoCodeSearchOption.reverseGeoPoint = pt;
-    BOOL flag = [_searcher reverseGeoCode:reverseGeoCodeSearchOption];
-
-    if(flag)
-    {
-      NSLog(@"反geo检索发送成功");
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
-    else
-    {
-      NSLog(@"反geo检索发送失败");
-    }
-}
-
-#pragma mark -- BMKGeoCodeSearchDelegate
-- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
-    if (error == BMK_SEARCH_NO_ERROR) {
-        //在此处理正常结果
-        NSLog(@"latitude: %f longitude:%f", result.location.latitude, result.location.longitude);
-    }
-    else {
-        NSLog(@"抱歉，未找到结果");
-    }
-}
-
-//接收反向地理编码结果
--(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:
-(BMKReverseGeoCodeResult *)result
-errorCode:(BMKSearchErrorCode)error{
-  if (error == BMK_SEARCH_NO_ERROR) {
-     // 在此处理正常结果
-     NSLog(@"%@", result.address);
-     NSLog(@"POI:%@", result.poiList);
-      int i = 0;
-      for (BMKPoiInfo *poi in result.poiList) {
-          NSLog(@"POI %d :%@", i, poi.name);
-          i++;
-      }
-  }
-  else {
-      NSLog(@"抱歉，未找到结果");
-  }
-}
-#pragma mark -- annotation
--(void)addAnnotationWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude{
-    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
-    CLLocationCoordinate2D coor;
-    coor.latitude = latitude;
-    coor.longitude = longitude;
-    annotation.coordinate = coor;
-    annotation.title = @"这里是北京";
+    CellInfor *cellInfor = self.sectionRow[indexPath.row];
     
-    [_mapView addAnnotation:annotation];
-}
-
--(BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
-        BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
-        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
-        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
-        newAnnotationView.image = [UIImage imageNamed:@"map"];
-        
-        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
-        customView.backgroundColor = [UIColor whiteColor];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 30, 30)];
-        imageView.image = [UIImage imageNamed:@"Head"];
-        [customView addSubview:imageView];
-        
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 80, 20)];
-        [customView addSubview:titleLabel];
-        [titleLabel setFont:[UIFont systemFontOfSize:13]];
-        titleLabel.text = @"绿茶餐厅";
-        
-        UILabel *subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 20, 80, 20)];
-        
-        subTitleLabel.text = @"现磨咖啡店";
-        [subTitleLabel setFont:[UIFont systemFontOfSize:13]];
-        [customView addSubview:subTitleLabel];
-        
-        BMKActionPaopaoView *paopaoView = [[BMKActionPaopaoView  alloc] initWithCustomView:customView];
-        newAnnotationView.paopaoView = paopaoView;
-        
-        [newAnnotationView setDraggable:YES];
-        
-        newAnnotationView.enabled3D = YES;
+    cell.textLabel.text = cellInfor.title;
     
-        return newAnnotationView;
-    }
-    return nil;
+    return cell;
 }
 
-
--(void)viewWillDisappear:(BOOL)animated
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CellInfor *cellInfor = self.sectionRow[indexPath.row];
     
-    [_mapView viewWillDisappear];
-    _mapView.delegate = nil; // 不用时，置nil
+    [self.navigationController pushViewController:cellInfor.viewController animated:YES];
+    
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
